@@ -39,8 +39,8 @@ public class TestMain {
 
             switch (scelta) {
                 case 0:
-
-                    Macchina v = new Macchina(7, 9, "acs", "dada", 12);
+                    //24=mezanotte 00=ivalido 
+                    Macchina v = new Macchina(7, 9, "acs", "dada", 30);
                     Macchina v1 = new Macchina(9, 5, "lubcnca", "CC583", 12);
                     Motorino v2 = new Motorino("mitsubishi", 180, "f4t56", 18);
 
@@ -64,13 +64,15 @@ public class TestMain {
                         System.out.println("targa non trovata");
 
                     } else {
-                        System.out.println("a che ora esce il veicolo con targa:" + string + " : ");
+                        System.out.println("a che ora esce il veicolo con targa " + string + " : ");
                         string = scanner.nextLine();
                         uscita = Integer.parseInt(string);
                         spesa = parcheggio.uscitaPerTarga(uscita, i);
                         if (spesa == -1) {
                             System.out.println("errore orario l'orario inserito e' sbagliato riprovare");
                             spesa = -12;
+                        } else if (spesa == -16) {
+                            System.out.println("orario non valido");
                         }
                     }
 

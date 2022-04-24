@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package parcheggioorario;
 
 /**
@@ -11,14 +10,14 @@ package parcheggioorario;
  * @author Studente
  */
 public class Biglietto {
-    
+
     private int oraIngresso;
 
     public Biglietto() {
     }
 
     public Biglietto(int oraIngresso) {
-        this.oraIngresso = oraIngresso;
+        setOraIngresso(oraIngresso);
     }
 
     public int getOraIngresso() {
@@ -26,12 +25,12 @@ public class Biglietto {
     }
 
     public void setOraIngresso(int oraIngresso) {
-        this.oraIngresso = oraIngresso;
+        if (oraIngresso > 24) {
+            System.out.println("orario non valido");
+            this.oraIngresso = -1;
+        } else {
+            this.oraIngresso = oraIngresso;
+        }
     }
-    
-    
-   
-    
-    
-    
+
 }

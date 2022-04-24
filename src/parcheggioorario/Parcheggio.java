@@ -49,7 +49,6 @@ public class Parcheggio {
 //        }
 //        return x;
 //    }
-
     public void add(Veicolo veicolo) {
         if (veicolo.tipo.equals("macchina")) {
             if (this.indexVeicoli == veicoli.length) {
@@ -81,30 +80,35 @@ public class Parcheggio {
     }
 
     public int uscitaPerTarga(int oraUscita, int i) {
-        int y = (oraUscita - veicoli[i].getBiglietto().getOraIngresso());
-        int x = 0;
 
-        if (y <= -1) {
-            return -1;
+        if (oraUscita > 23) {
+
         } else {
-            if (veicoli[i].tipo.equals("macchina")) {
-                if (y == 1 || y == 0) {
-                    return PREZZO_AUTO;
-                } else if (y > 1) {
-                    return x = (PREZZO_AUTO + (PREZZO_AUTO * y));
-                }
-            } else if (veicoli[i].tipo.equals("motorino")) {
-                if (y == 1) {
-                    return PREZZO_MOTO;
-                } else if (y > 1) {
-                    return x = (PREZZO_MOTO + (PREZZO_MOTO * y));
-                }
+            int y = (oraUscita - veicoli[i].getBiglietto().getOraIngresso());
+            int x = 0;
 
+            if (y <= -1) {
+                return -1;
+            } else {
+                if (veicoli[i].tipo.equals("macchina")) {
+                    if (y == 1 || y == 0) {
+                        return PREZZO_AUTO;
+                    } else if (y > 1) {
+                        return x = (PREZZO_AUTO + (PREZZO_AUTO * y));
+                    }
+                } else if (veicoli[i].tipo.equals("motorino")) {
+                    if (y == 1) {
+                        return PREZZO_MOTO;
+                    } else if (y > 1) {
+                        return x = (PREZZO_MOTO + (PREZZO_MOTO * y));
+                    }
+
+                }
             }
+
+            return -11;
         }
-
-        return -11;
-
+        return -16; //orario non vlido
     }
 
     public void eliminaAtIndex(int ix) {
@@ -119,7 +123,6 @@ public class Parcheggio {
 //        return Arrays.copyOf(veicoli, indexVeicoli);
 //
 //    }
-
     public void scontrino(int i, int spesa, int oraUscita) {
 
         if (spesa == -12) {
